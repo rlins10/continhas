@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "continhas"
+version = "0.1.0"
+description = "Gera folhas de atividades de matemática em PDF a partir de templates."
+readme = "README.md"
+requires-python = ">=3.8"
+license = { text = "GPL-2.0-or-later" }
+authors = [{ name = "Renato Lins" }]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: GNU General Public License v2 or later (GPLv2+)",
+    "Environment :: Console",
+    "Topic :: Education",
+]
+dependencies = [
+    "pymupdf",
+    "questionary",
+    "pyyaml",
+]
+
+[project.scripts]
+continhas = "continhas:main"
+
+[tool.setuptools]
+py-modules = ["continhas"]
