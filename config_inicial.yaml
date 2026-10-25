@@ -1,0 +1,117 @@
+# Configuração do continhas.
+#
+# Todas as medidas são em milímetros, contadas a partir do canto superior
+# esquerdo da página (o tamanho da fonte é em pontos). Caminhos relativos são
+# relativos a esta pasta; também são aceitos caminhos absolutos e "~".
+#
+# Convenção: a chave do template é minúscula, sem acento nem espaço, e o PDF
+# se chama templates/template_<chave>.pdf (assim dá para listar com
+# template_*.pdf).
+
+# Configurações gerais.
+geral:
+  # Pasta onde os PDFs gerados são salvos (criada se não existir). Caminho
+  # relativo vale a partir da pasta onde o programa é executado.
+  pasta_destino: ~/continhas
+
+# Template que já vem marcado na lista de seleção.
+padrao:
+  template: default
+
+# Fontes extras (opcional): dê um apelido e aponte para um arquivo .ttf ou .otf.
+# fontes:
+#   comic: ~/.local/share/fonts/ComicSansMS.ttf
+#   comic-neue: ~/.local/share/fonts/ComicNeue-Regular.otf
+
+templates:
+
+  # ----------------------------------------------------------------------
+  # Grade regular 4x4. A conta fica encostada à direita (alinhamento
+  # "canto"): x e y são a origem da conta no primeiro quadro e largura vai
+  # da origem até a borda direita da conta.
+  # ----------------------------------------------------------------------
+  default:
+    nome: Padrão (16 quadros)
+    # Se omitido, o caminho é templates/template_<chave>.pdf
+    caminho: templates/template_default.pdf
+    titulo:
+      # Retângulo do título: [x esquerda, y topo, x direita, y base].
+      retangulo: [50, 30, 160, 42]
+      # Apelido definido em "fontes" ou fonte embutida (helv, tiro, cour e as
+      # variantes em itálico/negrito).
+      fonte: cour
+      tamanho: 20
+      maiusculas: true
+    grade:
+      colunas: 4
+      linhas: 4
+      x: 33.5
+      y: 50.0
+      passo_x: 40.5
+      passo_y: 46.5
+      largura: 22.5
+    # Layouts irregulares: liste os quadros um a um (pode ser combinado com a
+    # grade). Exemplo no template atividade9, abaixo.
+
+  # ----------------------------------------------------------------------
+  # 9 quadros grandes, de tamanhos levemente diferentes. Aqui cada quadro é
+  # descrito por inteiro (x, y = canto superior esquerdo; largura e altura) e
+  # a conta é centralizada nele, seja qual for a operação.
+  # ----------------------------------------------------------------------
+  atividade9:
+    nome: Atividade 9 (9 quadros)
+    alinhamento: centro
+    titulo:
+      retangulo: [58, 29.5, 155.5, 44]   # dentro da caixa vazia do cabeçalho
+      fonte: helv
+      tamanho: 26
+      maiusculas: true
+    conta:
+      tamanho: 26          # corpo da fonte das contas (pt)
+      deslocamento_y: 3    # desce a conta, para fugir da bolinha numerada
+    quadros:
+      - {x: 11.87, y: 69.91, largura: 62.36, altura: 68.33}
+      - {x: 76.52, y: 69.91, largura: 60.77, altura: 68.33}
+      - {x: 139.64, y: 69.91, largura: 61.97, altura: 68.33}
+      - {x: 11.81, y: 142.24, largura: 61.91, altura: 69.28}
+      - {x: 76.26, y: 142.24, largura: 60.96, altura: 69.28}
+      - {x: 139.64, y: 142.24, largura: 61.72, altura: 69.28}
+      - {x: 11.87, y: 216.03, largura: 61.73, altura: 72.64}
+      - {x: 76.26, y: 216.03, largura: 60.96, altura: 72.64}
+      - {x: 139.70, y: 216.03, largura: 61.53, altura: 72.64}
+
+  # ----------------------------------------------------------------------
+  # 16 quadros com bolinha numerada no canto superior esquerdo e um enfeite
+  # no canto inferior direito. As duas primeiras fileiras são mais altas que
+  # as duas últimas. O template já traz o título desenhado ("Atividade de
+  # Matemática"), então o nome da operação vai na faixa livre entre a fita
+  # "Vamos praticar!" e a linha tracejada.
+  # ----------------------------------------------------------------------
+  criancas-4-anos:
+    nome: Crianças 4 anos (16 quadros)
+    alinhamento: centro
+    titulo:
+      retangulo: [57, 73, 155, 81.5]
+      fonte: hebo        # Helvetica negrito (embutida)
+      tamanho: 20
+      maiusculas: true
+    conta:
+      tamanho: 18
+      deslocamento_y: 0
+    quadros:
+      - {x: 15.37, y: 86.26, largura: 42.10, altura: 45.98}
+      - {x: 60.39, y: 86.26, largura: 42.54, altura: 45.98}
+      - {x: 106.11, y: 86.26, largura: 42.99, altura: 45.98}
+      - {x: 152.08, y: 86.26, largura: 42.67, altura: 45.98}
+      - {x: 15.37, y: 135.27, largura: 42.03, altura: 46.40}
+      - {x: 60.32, y: 135.27, largura: 42.61, altura: 46.40}
+      - {x: 106.04, y: 135.27, largura: 42.99, altura: 46.40}
+      - {x: 152.08, y: 135.27, largura: 42.67, altura: 46.40}
+      - {x: 15.30, y: 184.67, largura: 42.04, altura: 41.20}
+      - {x: 60.26, y: 184.67, largura: 42.61, altura: 41.20}
+      - {x: 106.04, y: 184.67, largura: 42.99, altura: 41.20}
+      - {x: 152.08, y: 184.67, largura: 42.61, altura: 41.20}
+      - {x: 15.37, y: 228.86, largura: 41.91, altura: 40.82}
+      - {x: 60.20, y: 228.86, largura: 42.67, altura: 40.82}
+      - {x: 106.04, y: 228.86, largura: 43.06, altura: 40.82}
+      - {x: 152.08, y: 228.86, largura: 42.61, altura: 40.82}
